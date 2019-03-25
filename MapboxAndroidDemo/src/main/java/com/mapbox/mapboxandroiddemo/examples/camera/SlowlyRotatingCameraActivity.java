@@ -81,7 +81,6 @@ public class SlowlyRotatingCameraActivity extends AppCompatActivity implements O
       DESIRED_NUM_OF_SPINS * DESIRED_SECONDS_PER_ONE_FULL_360_SPIN * 1000); // *1000 to convert to milliseconds
     animator.setInterpolator(new LinearInterpolator());
     animator.setStartDelay(1000);
-    animator.start();
     animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
       @Override
       public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -96,6 +95,7 @@ public class SlowlyRotatingCameraActivity extends AppCompatActivity implements O
             .build()));
       }
     });
+    animator.start();
   }
 
   @Override
