@@ -55,6 +55,7 @@ public class ValueAnimatorIconAnimationActivity extends AppCompatActivity implem
   private boolean animationHasStarted;
   private TimeInterpolator currentSelectedTimeInterpolator;
   private boolean firstRunThrough;
+  private ValueAnimator animator;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -155,7 +156,7 @@ public class ValueAnimatorIconAnimationActivity extends AppCompatActivity implem
    *                                SymbolLayer icons with.
    */
   private void initAnimation(TimeInterpolator desiredTimeInterpolator) {
-    ValueAnimator animator = ValueAnimator.ofFloat(STARTING_DROP_HEIGHT, 0);
+    animator = ValueAnimator.ofFloat(STARTING_DROP_HEIGHT, 0);
     animator.setDuration(DROP_SPEED_MILLISECONDS);
     animator.setInterpolator(desiredTimeInterpolator);
     animator.setStartDelay(1000);
@@ -256,6 +257,9 @@ public class ValueAnimatorIconAnimationActivity extends AppCompatActivity implem
   @Override
   protected void onStop() {
     super.onStop();
+    if (animator != null) {
+      animator.cancel();
+    }
     mapView.onStop();
   }
 
