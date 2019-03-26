@@ -30,6 +30,7 @@ import com.google.firebase.perf.metrics.AddTrace;
 import com.mapbox.mapboxandroiddemo.adapter.ExampleAdapter;
 import com.mapbox.mapboxandroiddemo.commons.AnalyticsTracker;
 import com.mapbox.mapboxandroiddemo.commons.FirstTimeRunChecker;
+import com.mapbox.mapboxandroiddemo.examples.labs.MovingIconWithTrailingLineActivity;
 import com.mapbox.mapboxandroiddemo.examples.labs.AnimatedMarkerActivity;
 import com.mapbox.mapboxandroiddemo.examples.dds.DrawPolygonActivity;
 import com.mapbox.mapboxandroiddemo.examples.basics.MapboxMapOptionActivity;
@@ -1042,6 +1043,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
       null,
       new Intent(MainActivity.this, MagicWindowKotlinActivity.class),
       R.string.activity_lab_magic_window_image_url, true, Build.VERSION_CODES.O));
+
+    exampleItemModels.add(new ExampleItemModel(
+      R.id.nav_lab,
+      R.string.activity_lab_moving_icon_with_trailing_line_title,
+      R.string.activity_lab_moving_icon_with_trailing_line_description,
+      new Intent(MainActivity.this, MovingIconWithTrailingLineActivity.class),
+      null,
+      R.string.activity_lab_moving_icon_with_trailing_line_url, true, BuildConfig.MIN_SDK_VERSION));
 
     exampleItemModels.add(new ExampleItemModel(
       R.id.nav_dds,
